@@ -102,28 +102,28 @@ def client_program():
         elif cmd[2][2] =="AFFEC34A":
             thk = "SAT STAT"
 
-            print("The Command has been received from the ground station...SATSTAT")
+            print("The status of the satellite...SATSTAT")
             mess = "--->>Received command SAT STAT <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="BA53A980":
             thk = "BAT STAT"
 
-            print("The Command has been received from the ground station...BATSTAT")
+            print("The status of the satellite...BATSTAT")
             mess = "--->>Received command BAT STAT <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="231876A7":
             thk = "HLTH"
 
-            print("The Command has been received from the ground station...HLTH")
+            print("The status of the satellite...HLTH")
             mess = "--->>Received command HLTH <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="C4579850":
             thk = "CHRG"
 
-            print("The Command has been received from the ground station...CHRG")
+            print("The status of the satellite...CHRG")
             mess = "--->>Received command CHRG <<---"
             client_socket.send(mess.encode())
             pass
