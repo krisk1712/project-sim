@@ -13,10 +13,10 @@ def client_program():
             break
         # print("from connected user: " + str(data))
         cmd = pickle.loads(data)
-        # if cmd == 'notm':
-        #     print("NO TELECOMMAND PROSSED DATA OVER SASTELLITE...........")
-        #     continue
-        if  cmd[2][2]=="3A326910":
+        if cmd == 'notm':
+            print("NO TELECOMMAND PROSSED DATA OVER SASTELLITE...........")
+            continue
+        elif  cmd[2][2]=="3A326910":
             tas = "THREE AXIS STABLIZE"
             print("The Command has been received from the ground station...TAS")
             mess = "--->>Received command THREE AXIS STABLIZE <<---"
