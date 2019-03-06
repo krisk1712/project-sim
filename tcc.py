@@ -2,6 +2,12 @@ import socket
 import pickle
 
 def client_program():
+    flag = "7E"
+    addr = "0A1C3B49"
+    cntrl = "5E9E8346"
+    preamble = "10101"
+    dat_flg = "0A"
+    fcs = "2EA6"
     host = socket.gethostname()  # as both code is running on same pc
     port = 4448  # socket server port number
     client_socket = socket.socket()  # instantiate
@@ -12,53 +18,63 @@ def client_program():
     cmd = input("ENTER A COMMAND FORM THE MENU: ")
     while cmd.lower().strip() != 'exit':
         if cmd == "tas":
-            sis = ["7E","0A1C3B49","5E9E8346",["10101","01","0C1100-0100CC"],"2EA6","7E"]
-            sis_proc = pickle.dumps(sis)
+            tas = "0C1100-0100CC"
+            pack_tas = [flag,addr,cntrl,[preamble,dat_flg,tas],fcs,flag]
+            sis_proc = pickle.dumps(pack_tas)
             client_socket.send(sis_proc)
             pass
         elif cmd == "spd":
-            dsp = ["7E","0FF1B498","1100AE64",["10101","01","0A1105-010C06"],"A13D","7E"]
-            dsp_proc = pickle.dumps(dsp)
+            spd = "0A1105-010C06"
+            pack_spd = [flag,addr,cntrl,[preamble,dat_flg,spd],fcs,flag]
+            dsp_proc = pickle.dumps(pack_spd)
             client_socket.send(dsp_proc)
             pass
         elif cmd == "ea":
-            ton = ["7E","0A1C3B49","5E9E8346",["10101","01","0A1105-010A04"],"2EA6","7E"] 
-            ton_proc = pickle.dumps(ton)
+            ea = "0A1105-010A04"
+            pack_ea = [flag,addr,cntrl,[preamble,dat_flg,ea],fcs,flag]
+            ton_proc = pickle.dumps(pack_ea)
             client_socket.send(ton_proc)
             pass
         elif cmd == "sa":
-            ea = ["7E","0A1C3B49","1100AE64",["10101","01","0A1105-010A14"],"2EA6","7E"] 
-            ea_proc  = pickle.dumps(ea)
+            sa = "0A1105-010A14"
+            pack_sa = [flag,addr,cntrl,[preamble,dat_flg,sa],fcs,flag] 
+            ea_proc  = pickle.dumps(pack_sa)
             client_socket.send(ea_proc)
             pass
         elif cmd == "pit":
-            sa = ["7E","0A1C3B49","1100AE64",["10101","01","0A2204-010C05"],"2EA6","7E"] 
-            sa_proc = pickle.dumps(sa)
+            pit = "0A2204-010C05"
+            pack_pit = [flag,addr,cntrl,[preamble,dat_flg,pit],fcs,flag] 
+            sa_proc = pickle.dumps(pack_pit)
             client_socket.send(sa_proc)
             pass
         elif cmd == "sud":
-            t_off = ["7E","0A1C3B49","1100AE64",["10101","01","0A113F-0000AA"],"2EA6","7E"] 
-            t_off_proc   = pickle.dumps(t_off)
+            sud = "0A113F-0000AA"
+            pack_sud = [flag,addr,cntrl,[preamble,dat_flg,sud],fcs,flag] 
+            t_off_proc   = pickle.dumps(pack_sud)
             client_socket.send(t_off_proc)
             pass
         elif cmd == "ton":
-            pd = ["7E","0A1C3B49","76AE2350",["10101","01","0A0001-000004"],"2EA6","7E"] 
-            pd_proc  = pickle.dumps(pd)
+            ton = "0A0001-000004"
+            pack_ton = [flag,addr,cntrl,[preamble,dat_flg,ton],fcs,flag] 
+            pd_proc  = pickle.dumps(pack_ton)
             client_socket.send(pd_proc)
             pass
         elif cmd == "pon":
-            pon = ["7E","0A1C3B49","1100AE64",["10101","01","0A0002-000005"],"2EA6","7E"] 
-            oson_proc = pickle.dumps(pon)
+            pon = "0A0002-000005"
+            pack_pon = [flag,addr,cntrl,[preamble,dat_flg,pon],fcs,flag] 
+            oson_proc = pickle.dumps(pack_pon)
             client_socket.send(oson_proc)
             pass
         elif cmd == "sue":
-            hk = ["7E","0A1C3B49","5E9E8346",["10101","01","0A113F-00009D"],"2EA6","7E"] 
-            hk_proc  = pickle.dumps(hk)
+            sue = "0A113F-00009D"
+            pack_sue = [flag,addr,cntrl,[preamble,dat_flg,sue],fcs,flag] 
+            hk_proc  = pickle.dumps(pack_sue)
             client_socket.send(hk_proc)
             pass
         elif cmd == "thk":
-            hk = ["7E","0A1C3B49","5E9E8346",["10101","01","0A1100-0A00AA"],"2EA6","7E"] 
-            hk_proc  = pickle.dumps(hk)
+            thk = "0A1100-0A00AA"
+            pack_thk = [flag,addr,cntrl,[preamble,dat_flg,thk],fcs,flag] 
+            hk_proc  = pickle.dumps(pack_thk)
             client_socket.send(hk_proc)
             pass
         else:

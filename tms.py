@@ -59,54 +59,63 @@ def telecmd_recv(s):
         print(pack)
         print("THE ABOVE IS THE READ FILE DATA")
         if pack.strip() == "THREE AXIS STABLIZE":
-            sis = "3A326910"
-            pack_sis = [asm,ph,[dat1,dat2,sis,fil],fil]
-            sis_proc = pickle.dumps(sis)
+            tas = "3A326910"
+            pack_tas = [asm,ph,[dat1,dat2,tas,fil],fil]
+            sis_proc = pickle.dumps(pack_tas)
             conn.send(sis_proc)
             pass
         elif pack.strip() == "SOLAR PANEL DEPLOYMENT":
-            dsp = ["4EA36B01","83EC",["AA55BB66","1A0E","8789AC43","0101"],"1212"]
-            dsp_proc = pickle.dumps(dsp)
+            spd = "8789AC43"
+            pack_spd = [asm,ph,[dat1,dat2,spd,fil],fil]
+            dsp_proc = pickle.dumps(pack_spd)
             conn.send(dsp_proc)
             pass
         elif pack.strip() == "EARTH ACQUSITION ":
-            ton = ["4EA36B01","83EC",["AA55BB66","1A0E","69984ACD","0101"],"1212"]
-            ton_proc = pickle.dumps(ton)
+            ea = "69984ACD"
+            pack_ea = [asm,ph,[dat1,dat2,ea,fil],fil]
+            ton_proc = pickle.dumps(pack_ea)
             conn.send(ton_proc)
             pass
         elif pack.strip() == "SUN ACQUSITION":
-            ea = ["4EA36B01","83EC",["AA55BB66","1A0E","ACD1437DF","0101"],"1212"] 
-            ea_proc  = pickle.dumps(ea)
+            sa = "ACD1437DF"
+            pack_sa = [asm,ph,[dat1,dat2,sa,fil],fil] 
+            ea_proc  = pickle.dumps(pack_sa)
             conn.send(ea_proc)
             pass
         elif pack.strip() == "PCS_INIT_TERM":
-            sa = ["4EA36B01","83EC",["AA55BB66","1A0E","0A010ECD","0101"],"1212"] 
-            sa_proc = pickle.dumps(sa)
+            pit = "0A010ECD"
+            pack_pit = [asm,ph,[dat1,dat2,pit,fil],fil]
+            sa_proc = pickle.dumps(pack_pit)
             conn.send(sa_proc)
             pass
         elif pack.strip() == "SS_UPDATE_DISABLE":
-            t_off = ["4EA36B01","83EC",["AA55BB66","1A0E","ADCFE1235","0101"],"1212"]  
-            t_off_proc   = pickle.dumps(t_off)
+            sud = "ADCFE1235" 
+            pack_sud = [asm,ph,[dat1,dat2,sud,fil],fil]
+            t_off_proc   = pickle.dumps(pack_sud)
             conn.send(t_off_proc)
             pass
         elif pack.strip() == "TRANSMITTER ON":
-            pd = ["4EA36B01","83EC",["AA55BB66","1A0E","987ADC34","0101"],"1212"] 
-            pd_proc  = pickle.dumps(pd)
+            to = "987ADC34"
+            pack_to = [asm,ph,[dat1,dat2,to,fil],fil] 
+            pd_proc  = pickle.dumps(pack_to)
             conn.send(pd_proc)
             pass
         elif pack.strip() == "PAYLOAD ON":
-            oson = ["4EA36B01","9A7D",["AA55BB66","1A0E","0A14CD13","0101"],"1212"]
-            oson_proc = pickle.dumps(oson)
+            pon ="0A14CD13"
+            pack_pon = [asm,ph,[dat1,dat2,pon,fil],fil]
+            oson_proc = pickle.dumps(pack_pon)
             conn.send(oson_proc)
             pass
         elif pack.strip() == "SS UPDATE ENABLE":
-            hk = ["4EA36B01","83EC",["AA55BB66","1A0E","876ADEF5","0101"],"1212"] 
-            hk_proc  = pickle.dumps(hk)
+            sue = "876ADEF5"
+            pack_sue = [asm,ph,[dat1,dat2,sue,fil],fil] 
+            hk_proc  = pickle.dumps(pack_sue)
             conn.send(hk_proc)
             pass
         elif pack.strip() == "TRANSMIT HK":
-            hk = ["4EA36B01","83EC",["AA55BB66","1A0E","68AECD120","0101"],"1212"] 
-            hk_proc  = pickle.dumps(hk)
+            thk = "68AECD120"
+            pack_thk = [asm,ph,[dat1,dat2,thk,fil],fil] 
+            hk_proc  = pickle.dumps(pack_thk)
             conn.send(hk_proc)
             pass
         else:
