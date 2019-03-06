@@ -1,5 +1,7 @@
 import socket
 import pickle
+from PIL import Image
+import numpy
 
 
 def client_program():
@@ -72,6 +74,16 @@ def client_program():
             opon = "PAYLOAD ON"
 
             print("The Command has been received from the ground station...OPON")
+            img = Image.open("./earth.jpg")
+            print("READING IMAGE FROM THE SATELLITE...")
+            arr = numpy.array(img)
+            print("CONVERTING ARRAY BACK TO IMAGE...")
+            img1 = Image.fromarray(arr)
+            print("Image converted....")
+            img1.show()
+            print("PAYLAOD ACK")
+            #NOT WORKING THEN
+            # img.show()
             mess = "--->>Received Telemetry ORIGAMI PAYLOAD ON <<---"
             client_socket.send(mess.encode())
             pass
