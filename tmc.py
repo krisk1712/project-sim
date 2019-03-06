@@ -19,7 +19,7 @@ def client_program():
         elif  cmd[2][2]=="3A326910":
             tas = "THREE AXIS STABLIZE"
             print("The Command has been received from the ground station...TAS")
-            mess = "--->>Received command THREE AXIS STABLIZE <<---"
+            mess = "--->>Received Telemetry THREE AXIS STABLIZE <<---"
             client_socket.send(mess.encode())
             pass
 
@@ -27,20 +27,20 @@ def client_program():
             spd = "SOLAR PANEL DEPLOYMENT"
 
             print("The Command has been received from the ground station... SPD")
-            mess = "--->>Received command SOLAR PANEL DEPLOYMENT <<---"
+            mess = "--->>Received Telemetry SOLAR PANEL DEPLOYMENT <<---"
             client_socket.send(mess.encode())
             pass
 
         elif cmd[2][2] =="69984ACD":
             ea = "EARTH ACQUSITION "
             print("The Command has been received from the ground station...EA")
-            mess = "--->>Received command EARTH ACQUSITION <<---"
+            mess = "--->>Received Telemetry EARTH ACQUSITION <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="ACD1437DF":
             sa = "SUN ACQUSITION"
             print("The Command has been received from the ground station...SA")
-            mess = "--->>Received command SUN ACQUSITION <<---"
+            mess = "--->>Received Telemetry SUN ACQUSITION <<---"
             client_socket.send(mess.encode())
             pass
 
@@ -48,7 +48,7 @@ def client_program():
             pit = "PCS_INIT_TERM"
 
             print("The Command has been received from the ground station...PIT")
-            mess = "--->>Received command PCS_INIT_TERM <<---"
+            mess = "--->>Received Telemetry PCS_INIT_TERM <<---"
             client_socket.send(mess.encode())
             pass
 
@@ -56,7 +56,7 @@ def client_program():
             sud = "SS_UPDATE_DISABLE"
 
             print("The Command has been received from the ground station...SUD")
-            mess = "--->>Received command SS_UPDATE_DISABLE <<---"
+            mess = "--->>Received Telemetry SS_UPDATE_DISABLE <<---"
             client_socket.send(mess.encode())
             pass
 
@@ -64,23 +64,15 @@ def client_program():
             ton = "TRANSMITTER ON"
 
             print("The Command has been received from the ground station...TON")
-            mess = "--->>Received command TRANSMITTER ON <<---"
+            mess = "--->>Received Telemetry TRANSMITTER ON <<---"
             client_socket.send(mess.encode())
             pass
 
         elif cmd[2][2] =="0A14CD13":
-            opon = "ORIGAMI PAYLOAD ON"
+            opon = "PAYLOAD ON"
 
             print("The Command has been received from the ground station...OPON")
-            mess = "--->>Received command ORIGAMI PAYLOAD ON <<---"
-            client_socket.send(mess.encode())
-            pass
-
-        elif cmd[2][2] =="76AC1340":
-            opoff = "ORIGAMI PAYLOAD OFF"
-
-            print("The Command has been received from the ground station...OPOFFF")
-            mess = "--->>Received command ORIGAMI PAYLOAD OFF <<---"
+            mess = "--->>Received Telemetry ORIGAMI PAYLOAD ON <<---"
             client_socket.send(mess.encode())
             pass
 
@@ -88,7 +80,7 @@ def client_program():
             sue = "SS UPDATE ENABLE"
 
             print("The Command has been received from the ground station...SUE")
-            mess = "--->>Received command SS UPDATE ENABLE <<---"
+            mess = "--->>Received Telemetry SS UPDATE ENABLE <<---"
             client_socket.send(mess.encode())
             pass
 
@@ -96,35 +88,35 @@ def client_program():
             thk = "TRANSMIT HK"
 
             print("The Command has been received from the ground station...THK")
-            mess = "--->>Received command TRANSMIT HK <<---"
+            mess = "--->>Received Telemetry TRANSMIT HK <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="AFFEC34A":
             thk = "SAT STAT"
 
             print("The status of the satellite...SATSTAT")
-            mess = "--->>Received command SAT STAT <<---"
+            mess = "--->>Received Telemetry SAT STAT <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="BA53A980":
             thk = "BAT STAT"
 
             print("The status of the satellite...BATSTAT")
-            mess = "--->>Received command BAT STAT <<---"
+            mess = "--->>Received Telemetry BAT STAT <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="231876A7":
             thk = "HLTH"
 
             print("The status of the satellite...HLTH")
-            mess = "--->>Received command HLTH <<---"
+            mess = "--->>Received Telemetry HLTH <<---"
             client_socket.send(mess.encode())
             pass
         elif cmd[2][2] =="C4579850":
             thk = "CHRG"
 
             print("The status of the satellite...CHRG")
-            mess = "--->>Received command CHRG <<---"
+            mess = "--->>Received Telemetry CHRG <<---"
             client_socket.send(mess.encode())
             pass
         else:

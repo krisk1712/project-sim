@@ -91,20 +91,11 @@ def server_program():
             pass
 
         elif cmd[3][2] =="0A0002-000005":
-            opon = "ORIGAMI PAYLOAD ON"
+            opon = "PAYLOAD ON"
 
             print("The Command has been received from the ground station...OPON")
             tcdb.write(opon + "\n")
-            mess = "--->>Received command ORIGAMI PAYLOAD ON <<---"
-            conn.send(mess.encode())
-            pass
-
-        elif cmd[3][2] =="0A0007-000006":
-            opoff = "ORIGAMI PAYLOAD OFF"
-
-            print("The Command has been received from the ground station...OPOFFF")
-            tcdb.write(opoff + "\n")
-            mess = "--->>Received command ORIGAMI PAYLOAD OFF <<---"
+            mess = "--->>Received command PAYLOAD ON <<---"
             conn.send(mess.encode())
             pass
 
@@ -130,7 +121,6 @@ def server_program():
             print("NO COMMAND TO BE RECOG BY THE SAT.....")
             pass
         a = a + 1
-    tcdb.write("EOF" + "\n")
     tcdb.close()    
     conn.close()  # close the connection
 

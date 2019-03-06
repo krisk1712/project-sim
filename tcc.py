@@ -7,7 +7,7 @@ def client_program():
     client_socket = socket.socket()  # instantiate
     client_socket.connect((host, port))  # connect to the server
     print("<<------------TELECOMMAND MODULE------------>>")
-    print("\n1.THREE AXIS STABLIZE(cmd--> tas)\n2.SOLAR PANEL DEPLOYMENT(cmd--> spd)\n3.EARTH ACQUSITION(cmd--> ea)\n4.SUN ACQUSITION(cmd--> sa)\n5.PCS_INIT_TERM(cmd--> pit)\n6.SS_UPDATE_DISABLE(cmd--> sud)\n7.TRANSMITTER ON(cmd--> ton)\n8.ORIGAMI PAYLOAD ON(cmd--> opon)\n9.ORIGAMI PAYLOAD OFF(cmd-->opoff)\n10.SS UPDATE ENABLE(cmd-->sue)\n11.TRANSMIT HK(cmd-->thk)\n")
+    print("\n1.THREE AXIS STABLIZE(cmd--> tas)\n2.SOLAR PANEL DEPLOYMENT(cmd--> spd)\n3.EARTH ACQUSITION(cmd--> ea)\n4.SUN ACQUSITION(cmd--> sa)\n5.PCS_INIT_TERM(cmd--> pit)\n6.SS_UPDATE_DISABLE(cmd--> sud)\n7.TRANSMITTER ON(cmd--> ton)\n8.PAYLOAD ON(cmd--> pon)\n9.SS UPDATE ENABLE(cmd-->sue)\n10.TRANSMIT HK(cmd-->thk)\n")
     print("<<------------------------------------------>>")
     cmd = input("ENTER A COMMAND FORM THE MENU: ")
     while cmd.lower().strip() != 'exit':
@@ -46,15 +46,10 @@ def client_program():
             pd_proc  = pickle.dumps(pd)
             client_socket.send(pd_proc)
             pass
-        elif cmd == "opon":
-            oson = ["7E","0A1C3B49","1100AE64",["10101","01","0A0002-000005"],"2EA6","7E"] 
-            oson_proc = pickle.dumps(oson)
+        elif cmd == "pon":
+            pon = ["7E","0A1C3B49","1100AE64",["10101","01","0A0002-000005"],"2EA6","7E"] 
+            oson_proc = pickle.dumps(pon)
             client_socket.send(oson_proc)
-            pass
-        elif cmd == "opoff":
-            osoff = ["7E","0A1C3B49","1100AE64",["10101","01","0A0007-000006"],"2EA6","7E"] 
-            osoff_proc = pickle.dumps(osoff)
-            client_socket.send(osoff_proc)
             pass
         elif cmd == "sue":
             hk = ["7E","0A1C3B49","5E9E8346",["10101","01","0A113F-00009D"],"2EA6","7E"] 

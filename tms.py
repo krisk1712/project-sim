@@ -17,7 +17,14 @@ port = 5555
 server_socket = socket.socket()  
 server_socket.bind((host, port))
 server_socket.listen(2)
-conn, address = server_socket.accept() 
+conn, address = server_socket.accept()
+
+
+asm = "4EA36B01"
+ph = "83EC"
+dat1 = "AA55BB66"
+dat2 = "1A0E"
+fil = "3412"
 
 def telemet_send(s):
     sat_stat = ["4EA36B01","83EC",["AA55BB66","1A0E","AFFEC34A","0101"],"1212"]
@@ -52,7 +59,8 @@ def telecmd_recv(s):
         print(pack)
         print("THE ABOVE IS THE READ FILE DATA")
         if pack.strip() == "THREE AXIS STABLIZE":
-            sis = ["4EA36B01","83EC",["AA55BB66","1A0E","3A326910","0101"],"1212"]
+            sis = "3A326910"
+            pack_sis = [asm,ph,[dat1,dat2,sis,fil],fil]
             sis_proc = pickle.dumps(sis)
             conn.send(sis_proc)
             pass
@@ -86,15 +94,10 @@ def telecmd_recv(s):
             pd_proc  = pickle.dumps(pd)
             conn.send(pd_proc)
             pass
-        elif pack.strip() == "ORIGAMI PAYLOAD ON":
+        elif pack.strip() == "PAYLOAD ON":
             oson = ["4EA36B01","9A7D",["AA55BB66","1A0E","0A14CD13","0101"],"1212"]
             oson_proc = pickle.dumps(oson)
             conn.send(oson_proc)
-            pass
-        elif pack.strip() == "ORIGAMI PAYLOAD OFF":
-            osoff = ["4EA36B01","83EC",["AA55BB66","1A0E","76AC1340","0101"],"1212"] 
-            osoff_proc = pickle.dumps(osoff)
-            conn.send(osoff_proc)
             pass
         elif pack.strip() == "SS UPDATE ENABLE":
             hk = ["4EA36B01","83EC",["AA55BB66","1A0E","876ADEF5","0101"],"1212"] 
