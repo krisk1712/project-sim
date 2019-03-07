@@ -30,8 +30,9 @@ def telemet_send(s):
     sat_stat = ["4EA36B01","83EC",["AA55BB66","1A0E","AFFEC34A","0101"],"1212"]
     bat_stat=  ["4EA36B01","83EC",["AA55BB66","1A0E","BA53A980","0101"],"1212"]
     hlth =     ["4EA36B01","83EC",["AA55BB66","1A0E","231876A7","0101"],"1212"]
-    chrg =     ["4EA36B01","83EC",["AA55BB66","1A0E","C4579850","0101"],"1212"] 
-    vars = [sat_stat,bat_stat,hlth,chrg]
+    chrg =     ["4EA36B01","83EC",["AA55BB66","1A0E","C4579850","0101"],"1212"]
+    null =     ["00000000","0000",["00000000","0000","00000000","0000"],"0000"]
+    vars = [sat_stat,bat_stat,hlth,chrg,null]
     counter = 0 
     while counter < 10:
         print(counter)
