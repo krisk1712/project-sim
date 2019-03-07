@@ -131,6 +131,12 @@ def client_program():
             mess = "--->>Received Telemetry CHRG <<---"
             client_socket.send(mess.encode())
             pass
+        elif cmd[2][2] == "00000000":
+            null = "00000000"
+            print("Null packets for conn estab.....")
+            mess = "-->> NUL PACKETS <<--"
+            client_socket.send(mess.encode())
+            pass
         else:
             print("NO COMMAND TO BE RECOG BY THE SAT.....")
             break
